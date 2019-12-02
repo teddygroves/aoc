@@ -26,11 +26,9 @@ def fuel_advanced(mass):
 
 
 def main():
-    masses = []
     with open('input.txt', 'r') as f:
         data = f.readlines()
-    for mass_str in data:
-        masses.append(float(mass_str))
+    masses = map(float, data)
     fuels = map(fuel_advanced, masses)
     total_fuel = sum(fuels)
     print('Total fuel: ' + str(total_fuel))

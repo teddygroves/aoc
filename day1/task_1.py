@@ -9,11 +9,9 @@ def fuel(mass):
     return mass // 3 - 2
 
 def main():
-    masses = []
     with open('input.txt', 'r') as f:
         data = f.readlines()
-    for mass_str in data:
-        masses.append(float(mass_str))
+    masses = map(float, data)
     fuels = map(fuel, masses)
     total_fuel = sum(fuels)
     print('Total fuel: ' + str(total_fuel))
