@@ -44,10 +44,6 @@ def get_points(movestring: str):
     return points
 
 
-def get_closest_point(points: List[Tuple[int]]):
-    return sorted(points, key=get_manhattan_distance)[1]
-
-
 def get_crosspoints(points_a: List[Tuple[int]], points_b: List[Tuple[int]]):
     index_a = {k: i for i,k in enumerate(points_a)}
     index_b = {k: i for i,k in enumerate(points_b)}
@@ -59,7 +55,11 @@ def get_crosspoints(points_a: List[Tuple[int]], points_b: List[Tuple[int]]):
 
 
 def get_crosspoint_with_fewest_steps(crosspoints: List[Tuple[int]]):
-    return sorted(crosspoints, key=get_total_steps)[1]
+    return sorted(crosspoints, key=get_total_steps)[1]  # not 0 as that is the origin
+
+
+def get_closest_point(points: List[Tuple[int]]):
+    return sorted(points, key=get_manhattan_distance)[1] # not 0 as that is the origin
 
 
 def main():
